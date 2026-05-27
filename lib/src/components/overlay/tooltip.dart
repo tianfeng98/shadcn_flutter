@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/src/components/control/hover.dart';
+import 'package:tf_shadcn_flutter/src/components/control/hover.dart';
 
 import '../../../shadcn_flutter.dart';
 

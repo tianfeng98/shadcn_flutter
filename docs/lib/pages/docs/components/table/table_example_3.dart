@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates a scrollable Table hooked to ScrollableClient with frozen
 // rows/columns and diagonal drag panning.

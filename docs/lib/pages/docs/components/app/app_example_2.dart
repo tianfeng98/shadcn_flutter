@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates ShadcnApp with custom light/dark themes.
 // Highlights theme knobs like colorScheme, radius, scaling, surfaceOpacity,

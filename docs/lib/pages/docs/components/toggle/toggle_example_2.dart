@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates a group of mutually exclusive Toggles (B/I/U) where exactly
 // one formatting option can be active at a time.

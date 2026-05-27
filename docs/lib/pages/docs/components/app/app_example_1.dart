@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Minimal ShadcnApp usage: provides theming and routing scaffolding similar to
 // MaterialApp/CupertinoApp, then renders a basic Scaffold with an AppBar.

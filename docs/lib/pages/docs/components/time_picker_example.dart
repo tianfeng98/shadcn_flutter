@@ -1,7 +1,7 @@
 import 'package:docs/pages/docs/component_page.dart';
 import 'package:docs/pages/docs/components/time_picker/time_picker_example_1.dart';
 import 'package:docs/pages/widget_usage_example.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class TimePickerExample extends StatelessWidget {
   const TimePickerExample({super.key});

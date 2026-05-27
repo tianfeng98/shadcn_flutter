@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class ButtonExample16 extends StatelessWidget {
   const ButtonExample16({super.key});

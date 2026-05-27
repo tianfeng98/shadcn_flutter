@@ -2,7 +2,7 @@ import 'dart:io';
 
 void main() {
   String result =
-      "import 'package:shadcn_flutter/shadcn_flutter.dart';\n"
+      "import 'package:tf_shadcn_flutter/shadcn_flutter.dart';\n"
       "\n"
       "class Colors {\n";
   List<String> primaryNames = [];

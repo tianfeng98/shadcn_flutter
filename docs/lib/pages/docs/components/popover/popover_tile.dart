@@ -1,5 +1,5 @@
 import 'package:docs/pages/docs/components_page.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 import 'package:docs/pages/docs/components/calendar/calendar_example_2.dart';
 
 class PopoverTile extends StatelessWidget implements IComponentPage {

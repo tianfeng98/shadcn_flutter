@@ -1,5 +1,5 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
-import 'package:shadcn_flutter/src/components/display/fade_scroll.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/src/components/display/fade_scroll.dart';
 
 /// Theme configuration for [TabPane] appearance and layout.
 ///

@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates a Tooltip wrapping a button; shows tooltip content on
 // hover/focus.

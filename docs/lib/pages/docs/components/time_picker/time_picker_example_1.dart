@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates TimePicker in popover and dialog modes, updating state and
 // handling cancel by falling back to current time.

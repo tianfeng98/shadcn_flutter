@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // ShadcnApp.router example using GoRouter for declarative navigation.
 // Defines two routes ('/' and '/about') and renders a simple Scaffold for each.

@@ -1,5 +1,5 @@
 import 'package:docs/debug.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates a WindowNavigator simulating multiple desktop-style windows,
 // with an action to add a new window at runtime.

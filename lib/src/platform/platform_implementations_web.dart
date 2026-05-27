@@ -1,6 +1,6 @@
 import 'dart:js_interop';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 @JS("Window")
 extension type _Window(JSObject _) implements JSObject {

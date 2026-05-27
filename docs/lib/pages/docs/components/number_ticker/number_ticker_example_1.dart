@@ -1,5 +1,5 @@
 import 'package:intl/intl.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates NumberTicker animating from its previous value to a new value.
 // The TextField lets you enter a target integer; committing the edit triggers

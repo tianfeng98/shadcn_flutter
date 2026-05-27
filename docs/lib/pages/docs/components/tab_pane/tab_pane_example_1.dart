@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates TabPane with sortable, closable tabs backed by custom data.
 // Tracks a focused index and renders a content area for the active tab.

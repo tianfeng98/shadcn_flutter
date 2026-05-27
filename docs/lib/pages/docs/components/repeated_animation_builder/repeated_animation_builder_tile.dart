@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart' as material;
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 import 'package:docs/pages/docs/components_page.dart';
 
 class RepeatedAnimationBuilderTile extends StatelessWidget

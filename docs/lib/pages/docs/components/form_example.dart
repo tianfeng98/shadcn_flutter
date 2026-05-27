@@ -7,7 +7,7 @@ import 'package:docs/pages/docs/components/form/form_example_8.dart';
 import 'package:docs/pages/docs/components/form/form_example_9.dart';
 import 'package:docs/pages/docs_page.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 import '../../widget_usage_example.dart';
 import 'form/form_example_1.dart';

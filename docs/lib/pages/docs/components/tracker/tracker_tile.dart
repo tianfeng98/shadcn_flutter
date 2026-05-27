@@ -1,6 +1,6 @@
 import 'package:docs/pages/docs/components_page.dart';
 import 'package:docs/pages/docs/components/tracker/tracker_example_1.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class TrackerTile extends StatelessWidget implements IComponentPage {
   const TrackerTile({super.key});

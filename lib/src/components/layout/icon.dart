@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 /// Provides themed icon container widgets for shadcn_flutter components.
 ///
 /// Includes [IconContainerTheme] and [IconContainer] for styling icons with background, padding, and border radius.

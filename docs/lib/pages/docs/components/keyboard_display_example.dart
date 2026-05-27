@@ -1,5 +1,5 @@
 import 'package:docs/pages/docs/component_page.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 import '../../widget_usage_example.dart';
 import 'keyboard_display/keyboard_display_example_1.dart';

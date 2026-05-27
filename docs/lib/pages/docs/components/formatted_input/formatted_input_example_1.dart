@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class FormattedInputExample1 extends StatelessWidget {
   const FormattedInputExample1({super.key});

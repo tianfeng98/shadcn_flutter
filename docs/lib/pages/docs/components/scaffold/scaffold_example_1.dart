@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class ScaffoldExample1 extends StatefulWidget {
   const ScaffoldExample1({super.key});

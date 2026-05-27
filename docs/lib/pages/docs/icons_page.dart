@@ -1,6 +1,6 @@
 import 'package:docs/code_highlighter.dart';
 import 'package:docs/radix_icons.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 import '../../bootstrap_icons.dart';
 import '../../lucide_icons.dart';

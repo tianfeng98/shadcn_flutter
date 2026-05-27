@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates ResizableTable with controller defaults (sizes/constraints)
 // and thin per-cell borders; users can drag to resize columns/rows.

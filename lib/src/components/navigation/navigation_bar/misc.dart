@@ -1,5 +1,5 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
-import 'package:shadcn_flutter/src/components/layout/hidden.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/src/components/layout/hidden.dart';
 
 /// Returns the padding at the start of the axis.
 double startPadding(EdgeInsets padding, Axis direction) {

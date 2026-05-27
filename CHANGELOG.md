@@ -1,3 +1,9 @@
+## [0.0.52+1]
+
+### Changed
+
+- Rename package identifier from `shadcn_flutter` to `tf_shadcn_flutter` and update package imports accordingly.
+
 ## [0.0.52]
 
 ### Fixed

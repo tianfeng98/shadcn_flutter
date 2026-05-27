@@ -1,5 +1,5 @@
 import 'package:flutter/rendering.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// A multi-child layout widget that positions children using absolute coordinates.
 ///

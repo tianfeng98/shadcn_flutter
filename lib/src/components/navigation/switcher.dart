@@ -1,5 +1,5 @@
 import 'package:flutter/rendering.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// A swipeable container that transitions between multiple child widgets.
 ///

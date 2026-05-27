@@ -5,7 +5,7 @@ import 'package:docs/pages/docs/components/item_picker/item_picker_example_3.dar
 import 'package:docs/pages/docs/components/item_picker/item_picker_example_4.dart';
 import 'package:docs/pages/docs/components/item_picker/item_picker_example_5.dart';
 import 'package:docs/pages/widget_usage_example.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class ItemPickerExample extends StatelessWidget {
   const ItemPickerExample({super.key});

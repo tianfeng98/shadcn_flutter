@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates a Tracker strip with varying levels (fine/warning/critical)
 // and per-cell tooltips, similar to a heatmap timeline.

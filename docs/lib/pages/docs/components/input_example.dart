@@ -3,7 +3,7 @@ import 'package:docs/pages/docs/components/input/input_example_3.dart';
 import 'package:docs/pages/docs/components/input/input_example_4.dart';
 import 'package:docs/pages/docs/components/input/input_example_5.dart';
 import 'package:docs/pages/widget_usage_example.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 import 'input/input_example_1.dart';
 import 'input/input_example_2.dart';

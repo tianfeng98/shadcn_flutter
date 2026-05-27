@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcn;
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart' as shadcn;
 import 'package:flutter/material.dart';
 
 // Wrap an existing Material/Cupertino app with ShadcnUI and Theme.

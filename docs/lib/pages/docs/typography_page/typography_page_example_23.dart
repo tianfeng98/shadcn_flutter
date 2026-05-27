@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class TypographyPageExample23 extends StatelessWidget {
   const TypographyPageExample23({super.key});

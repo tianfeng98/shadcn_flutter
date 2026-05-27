@@ -1,6 +1,6 @@
 import 'package:docs/code_highlighter.dart';
 import 'package:docs/pages/docs_page.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class WebPreloaderPage extends StatelessWidget {

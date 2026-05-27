@@ -3,7 +3,7 @@ import 'package:docs/pages/docs/components/number_input/number_input_example_1.d
 import 'package:docs/pages/docs/components/number_input/number_input_example_2.dart';
 import 'package:docs/pages/docs/components/number_input/number_input_example_3.dart';
 import 'package:docs/pages/widget_usage_example.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class NumberInputExample extends StatelessWidget {
   const NumberInputExample({super.key});

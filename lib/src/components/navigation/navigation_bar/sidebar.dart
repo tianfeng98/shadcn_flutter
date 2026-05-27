@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 import 'misc.dart';
 
 /// A full-width navigation sidebar component for comprehensive navigation.

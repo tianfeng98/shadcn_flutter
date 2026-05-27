@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class ResizableExample7 extends StatefulWidget {
   const ResizableExample7({super.key});

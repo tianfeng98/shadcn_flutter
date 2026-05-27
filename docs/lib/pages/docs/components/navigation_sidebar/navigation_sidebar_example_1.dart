@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates a vertical NavigationSidebar with labels, dividers, and gaps.
 // Selection is index-based and controlled by local state.

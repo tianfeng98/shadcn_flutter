@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/rendering.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// A widget that constrains the width of its child based on a factor and aligns it.
 ///

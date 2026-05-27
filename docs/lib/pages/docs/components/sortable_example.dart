@@ -5,7 +5,7 @@ import 'package:docs/pages/docs/components/sortable/sortable_example_3.dart';
 import 'package:docs/pages/docs/components/sortable/sortable_example_4.dart';
 import 'package:docs/pages/docs/components/sortable/sortable_example_5.dart';
 import 'package:docs/pages/docs/components/sortable/sortable_example_6.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 import '../../widget_usage_example.dart';
 

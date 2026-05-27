@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class ColorPickerExample2 extends StatelessWidget {
   const ColorPickerExample2({super.key});

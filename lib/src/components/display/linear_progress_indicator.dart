@@ -1,6 +1,6 @@
 import 'dart:ui' as ui;
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// Theme configuration for [LinearProgressIndicator] components.
 ///

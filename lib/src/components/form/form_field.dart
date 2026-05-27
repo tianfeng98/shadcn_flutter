@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// Type definition for the save button in an object input form field.
 typedef ObjectInputSaveButton = PrimaryButton;

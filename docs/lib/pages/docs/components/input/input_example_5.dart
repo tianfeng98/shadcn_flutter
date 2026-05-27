@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// This example demonstrates grouping multiple input fields together
 /// using the `ButtonGroup` component.

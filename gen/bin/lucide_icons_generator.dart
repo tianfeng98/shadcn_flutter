@@ -31,7 +31,7 @@ Future<void> main() async {
   targetClass.writeAsStringSync(builder);
 
   String iconDocsClass =
-      'import \'package:shadcn_flutter/shadcn_flutter.dart\';\nconst Map<String, IconData> kLucideIcons = {\n';
+      'import \'package:tf_shadcn_flutter/shadcn_flutter.dart\';\nconst Map<String, IconData> kLucideIcons = {\n';
   for (String key in generalizedIcons.keys) {
     iconDocsClass += '  \'$key\': LucideIcons.$key,\n';
   }

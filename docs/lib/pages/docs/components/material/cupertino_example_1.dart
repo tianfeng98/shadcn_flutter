@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcnui;
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart' as shadcnui;
 
 class CupertinoExample1 extends StatefulWidget {
   const CupertinoExample1({super.key});

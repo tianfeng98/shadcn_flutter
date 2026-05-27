@@ -1,5 +1,5 @@
 import 'package:flutter/widget_previews.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// A [Preview] that wraps the previewed widget in a [ShadcnLayer].
 ///

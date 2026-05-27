@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates TimelineAnimation by composing offset and rotation keyframes
 // sampled by a shared controller.

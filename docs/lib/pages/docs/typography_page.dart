@@ -1,6 +1,6 @@
 import 'package:docs/pages/docs_page.dart';
 import 'package:docs/pages/widget_usage_example.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 import 'typography_page/typography_page_example_1.dart';
 import 'typography_page/typography_page_example_10.dart';

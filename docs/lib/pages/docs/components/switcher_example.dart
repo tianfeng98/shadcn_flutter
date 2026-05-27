@@ -2,7 +2,7 @@ import 'package:docs/pages/docs/component_page.dart';
 import 'package:docs/pages/docs/components/switcher/switcher_example_1.dart';
 import 'package:docs/pages/docs/components/switcher/switcher_example_2.dart';
 import 'package:docs/pages/widget_usage_example.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class SwitcherExample extends StatelessWidget {
   const SwitcherExample({super.key});

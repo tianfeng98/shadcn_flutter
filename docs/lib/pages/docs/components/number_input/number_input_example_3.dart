@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class NumberInputExample3 extends StatefulWidget {
   const NumberInputExample3({super.key});

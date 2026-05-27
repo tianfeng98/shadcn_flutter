@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class InputOTPExample4 extends StatelessWidget {
   const InputOTPExample4({super.key});

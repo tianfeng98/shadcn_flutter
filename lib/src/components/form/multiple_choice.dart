@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// Theme data for [MultipleChoice] and [MultipleAnswer].
 class MultipleChoiceTheme extends ComponentThemeData {

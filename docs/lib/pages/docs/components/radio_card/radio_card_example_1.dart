@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class RadioCardExample1 extends StatefulWidget {
   const RadioCardExample1({super.key});

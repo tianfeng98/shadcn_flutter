@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class NumberTickerExample2 extends StatefulWidget {
   const NumberTickerExample2({super.key});

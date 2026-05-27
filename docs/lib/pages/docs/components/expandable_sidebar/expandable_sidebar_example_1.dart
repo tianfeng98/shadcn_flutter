@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 // Demonstrates an "expandable" navigation rail that can collapse/expand labels
 // while keeping the same selection model. The left rail hosts sections and items;

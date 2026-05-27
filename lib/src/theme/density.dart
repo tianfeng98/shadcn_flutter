@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// 2x extra small padding multiplier (0.25).
 ///

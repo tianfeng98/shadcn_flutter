@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
-import 'package:shadcn_flutter/src/resizer.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/src/resizer.dart';
 
 /// Theme for [HorizontalResizableDragger] and [VerticalResizableDragger].
 class ResizableDraggerTheme extends ComponentThemeData {

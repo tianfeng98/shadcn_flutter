@@ -1,9 +1,9 @@
 import 'dart:collection';
 import 'dart:ui';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
-import 'package:shadcn_flutter/src/components/layout/group.dart';
-import 'package:shadcn_flutter/src/components/patch.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/src/components/layout/group.dart';
+import 'package:tf_shadcn_flutter/src/components/patch.dart';
 
 /// Theme configuration for window components.
 ///

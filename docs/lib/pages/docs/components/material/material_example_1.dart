@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart' as shadcnui;
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart' as shadcnui;
 
 class MaterialExample1 extends StatefulWidget {
   const MaterialExample1({super.key});

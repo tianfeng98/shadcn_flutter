@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// A builder function for widgets based on [FutureOr] async snapshots.
 ///

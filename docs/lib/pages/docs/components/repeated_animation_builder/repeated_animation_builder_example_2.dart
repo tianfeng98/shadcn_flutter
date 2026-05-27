@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class RepeatedAnimationBuilderExample2 extends StatelessWidget {
   const RepeatedAnimationBuilderExample2({super.key});

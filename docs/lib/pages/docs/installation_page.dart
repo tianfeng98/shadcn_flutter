@@ -1,5 +1,5 @@
 import 'package:docs/code_highlighter.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../docs_page.dart';
@@ -64,7 +64,7 @@ class InstallationPageState extends State<InstallationPage> {
                       .p(),
                   const CodeBlock(
                     code:
-                        'import \'package:shadcn_flutter/shadcn_flutter.dart\';',
+                        'import \'package:tf_shadcn_flutter/shadcn_flutter.dart\';',
                     mode: 'dart',
                   ).p(),
                 ],

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 class FormExample3 extends StatefulWidget {
   const FormExample3({super.key});

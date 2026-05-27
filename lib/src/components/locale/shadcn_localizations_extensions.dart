@@ -1,4 +1,4 @@
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 /// Extension methods for [ShadcnLocalizations] to provide additional formatting and utility functions.
 extension ShadcnLocalizationsExtensions on ShadcnLocalizations {

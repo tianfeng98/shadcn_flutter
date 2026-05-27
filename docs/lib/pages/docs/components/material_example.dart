@@ -2,7 +2,7 @@ import 'package:docs/pages/docs/component_page.dart';
 import 'package:docs/pages/docs/components/material/material_example_1.dart';
 import 'package:docs/pages/widget_usage_example.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shadcn_flutter/shadcn_flutter.dart';
+import 'package:tf_shadcn_flutter/shadcn_flutter.dart';
 
 import 'material/cupertino_example_1.dart';
 
