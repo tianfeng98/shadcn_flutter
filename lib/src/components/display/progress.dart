@@ -155,6 +155,11 @@ class Progress extends StatelessWidget {
   /// a semi-transparent version of the progress color. Overrides theme values.
   final Color? backgroundColor;
 
+  /// An optional gradient to apply to the progress fill.
+  /// Type: `Gradient?`. If provided, this gradient will be used to fill the progress bar instead of a solid color.
+  /// The gradient will be applied across the entire progress fill area, transitioning smoothly as progress changes.
+  final Gradient? progressGradient;
+
   /// The normalized progress value between 0.0 and 1.0.
   ///
   /// Type: `double?`. Returns null when [progress] is null (indeterminate).
@@ -201,6 +206,7 @@ class Progress extends StatelessWidget {
     this.disableAnimation = false,
     this.color,
     this.backgroundColor,
+    this.progressGradient,
   }) : assert(progress == null || progress >= min && progress <= max,
             'Progress must be between min and max');
 
@@ -209,18 +215,21 @@ class Progress extends StatelessWidget {
     final theme = Theme.of(context);
     final compTheme = ComponentTheme.maybeOf<ProgressTheme>(context);
     return LinearProgressIndicator(
-      value: normalizedValue,
-      backgroundColor: styleValue(
-          defaultValue: backgroundColor,
-          themeValue: compTheme?.backgroundColor),
-      color: styleValue(
-          themeValue: compTheme?.color, widgetValue: color, defaultValue: null),
-      minHeight: styleValue(
-          defaultValue: 8.0 * theme.scaling, themeValue: compTheme?.minHeight),
-      borderRadius: styleValue(
-          defaultValue: theme.borderRadiusSm,
-          themeValue: compTheme?.borderRadius),
-      disableAnimation: disableAnimation,
-    );
+        value: normalizedValue,
+        backgroundColor: styleValue(
+            defaultValue: backgroundColor,
+            themeValue: compTheme?.backgroundColor),
+        color: styleValue(
+            themeValue: compTheme?.color,
+            widgetValue: color,
+            defaultValue: null),
+        minHeight: styleValue(
+            defaultValue: 8.0 * theme.scaling,
+            themeValue: compTheme?.minHeight),
+        borderRadius: styleValue(
+            defaultValue: theme.borderRadiusSm,
+            themeValue: compTheme?.borderRadius),
+        disableAnimation: disableAnimation,
+        progressGradient: progressGradient);
   }
 }

@@ -1,8 +1,14 @@
-## [0.0.52+1]
+## [0.0.53+1]
 
-### Changed
+### Added
 
-- Rename package identifier from `shadcn_flutter` to `tf_shadcn_flutter` and update package imports accordingly.
+- Add leading, trailing, and indicator icon slots to Select components.
+- Add `progressGradient` to `LinearProgressIndicator` and `LinearProgressIndicatorTheme` for gradient-filled progress bars.
+
+### Fixed
+
+- TextField: prevent trailing features from re-animating when other input features (for example, clear) change visibility.
+- TextField: keep input features visually stable with long text by preventing adornments from scrolling with editable content.
 
 ## [0.0.53]
 
@@ -23,6 +29,12 @@
 - **[#403] Fix decimal input bug**: Resolved `_DoubleOnlyFormatter` not accepting `0.00N` input cases (PR #403 by @petertle22).
 - **[#404] Clickable morphing decoration**: Ensured the `Clickable` decoration morphs smoothly when transitioning between shape/border-radius changes.
 - Cleaned up redundant and deprecated `Builder` widget usages in documentation, main examples, and sub-components.
+
+## [0.0.52+1]
+
+### Changed
+
+- Rename package identifier from `shadcn_flutter` to `tf_shadcn_flutter` and update package imports accordingly.
 
 ## [0.0.52]
 

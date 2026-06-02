@@ -17,6 +17,12 @@ class LinearProgressIndicatorTheme extends ComponentThemeData {
   /// filled portion that represents completion progress.
   final Color? color;
 
+  /// The gradient used to paint the progress indicator fill.
+  ///
+  /// Type: `Gradient?`. If null, falls back to [color] based painting.
+  /// When provided, it overrides solid-color fill rendering.
+  final Gradient? progressGradient;
+
   /// The background color behind the progress indicator.
   ///
   /// Type: `Color?`. If null, uses a semi-transparent version of the primary color.
@@ -64,6 +70,7 @@ class LinearProgressIndicatorTheme extends ComponentThemeData {
   /// ```
   const LinearProgressIndicatorTheme({
     this.color,
+    this.progressGradient,
     this.backgroundColor,
     this.minHeight,
     this.borderRadius,
@@ -74,6 +81,7 @@ class LinearProgressIndicatorTheme extends ComponentThemeData {
   /// Returns a copy of this theme with the given fields replaced.
   LinearProgressIndicatorTheme copyWith({
     ValueGetter<Color?>? color,
+    ValueGetter<Gradient?>? progressGradient,
     ValueGetter<Color?>? backgroundColor,
     ValueGetter<double?>? minHeight,
     ValueGetter<BorderRadiusGeometry?>? borderRadius,
@@ -82,6 +90,8 @@ class LinearProgressIndicatorTheme extends ComponentThemeData {
   }) {
     return LinearProgressIndicatorTheme(
       color: color == null ? this.color : color(),
+      progressGradient:
+          progressGradient == null ? this.progressGradient : progressGradient(),
       backgroundColor:
           backgroundColor == null ? this.backgroundColor : backgroundColor(),
       minHeight: minHeight == null ? this.minHeight : minHeight(),
@@ -97,6 +107,7 @@ class LinearProgressIndicatorTheme extends ComponentThemeData {
     if (identical(this, other)) return true;
     return other is LinearProgressIndicatorTheme &&
         other.color == color &&
+        other.progressGradient == progressGradient &&
         other.backgroundColor == backgroundColor &&
         other.minHeight == minHeight &&
         other.borderRadius == borderRadius &&
@@ -107,6 +118,7 @@ class LinearProgressIndicatorTheme extends ComponentThemeData {
   @override
   int get hashCode => Object.hash(
         color,
+        progressGradient,
         backgroundColor,
         minHeight,
         borderRadius,
@@ -205,6 +217,12 @@ class LinearProgressIndicator extends StatelessWidget {
   /// progress segments in indeterminate mode. Overrides theme configuration.
   final Color? color;
 
+  /// The gradient used to paint the progress fill.
+  ///
+  /// Type: `Gradient?`. If null, uses solid [color] rendering.
+  /// Overrides theme configuration when provided.
+  final Gradient? progressGradient;
+
   /// The border radius of the progress container.
   ///
   /// Type: `BorderRadiusGeometry?`. If null, uses BorderRadius.zero.
@@ -234,6 +252,7 @@ class LinearProgressIndicator extends StatelessWidget {
   /// - [backgroundColor] (Color?, optional): Track background color override
   /// - [minHeight] (double?, optional): Minimum indicator height override
   /// - [color] (Color?, optional): Progress fill color override
+  /// - [progressGradient] (Gradient?, optional): Progress fill gradient override
   /// - [borderRadius] (BorderRadiusGeometry?, optional): Container border radius override
   /// - [showSparks] (bool?, optional): Whether to show spark effects
   /// - [disableAnimation] (bool?, optional): Whether to disable smooth transitions
@@ -254,6 +273,7 @@ class LinearProgressIndicator extends StatelessWidget {
     this.backgroundColor,
     this.minHeight,
     this.color,
+    this.progressGradient,
     this.borderRadius,
     this.showSparks,
     this.disableAnimation,
@@ -275,6 +295,11 @@ class LinearProgressIndicator extends StatelessWidget {
       widgetValue: backgroundColor,
       themeValue: compTheme?.backgroundColor,
       defaultValue: colorValue.scaleAlpha(0.2),
+    );
+    final progressGradientValue = styleValue<Gradient?>(
+      widgetValue: progressGradient,
+      themeValue: compTheme?.progressGradient,
+      defaultValue: null,
     );
     final minHeightValue = styleValue(
       widgetValue: minHeight,
@@ -303,6 +328,7 @@ class LinearProgressIndicator extends StatelessWidget {
           start: 0,
           end: value!.clamp(0, 1),
           color: colorValue,
+          progressGradient: progressGradientValue,
           backgroundColor: backgroundColorValue,
           showSparks: showSparksValue,
           sparksColor: colorValue,
@@ -320,6 +346,7 @@ class LinearProgressIndicator extends StatelessWidget {
               start2: value.start2,
               end2: value.end2,
               color: value.color,
+              progressGradient: value.progressGradient,
               backgroundColor: value.backgroundColor,
               showSparks: value.showSparks,
               sparksColor: value.sparksColor,
@@ -349,6 +376,7 @@ class LinearProgressIndicator extends StatelessWidget {
               start2: start2,
               end2: end2,
               color: colorValue,
+              progressGradient: progressGradientValue,
               backgroundColor: backgroundColorValue,
               showSparks: showSparksValue,
               sparksColor: colorValue,
@@ -364,6 +392,7 @@ class LinearProgressIndicator extends StatelessWidget {
                   start2: start2,
                   end2: end2,
                   color: prop.color,
+                  progressGradient: prop.progressGradient,
                   backgroundColor: prop.backgroundColor,
                   showSparks: prop.showSparks,
                   sparksColor: prop.sparksColor,
@@ -391,6 +420,7 @@ class _LinearProgressIndicatorProperties {
   final double? start2;
   final double? end2;
   final Color color;
+  final Gradient? progressGradient;
   final Color backgroundColor;
   final bool showSparks;
   final Color sparksColor;
@@ -403,6 +433,7 @@ class _LinearProgressIndicatorProperties {
     this.start2,
     this.end2,
     required this.color,
+    this.progressGradient,
     required this.backgroundColor,
     required this.showSparks,
     required this.sparksColor,
@@ -421,6 +452,7 @@ class _LinearProgressIndicatorProperties {
       start2: _lerpDouble(a.start2, b.start2, t),
       end2: _lerpDouble(a.end2, b.end2, t),
       color: Color.lerp(a.color, b.color, t)!,
+      progressGradient: t < 0.5 ? a.progressGradient : b.progressGradient,
       backgroundColor: Color.lerp(a.backgroundColor, b.backgroundColor, t)!,
       showSparks: b.showSparks,
       sparksColor: Color.lerp(a.sparksColor, b.sparksColor, t)!,
@@ -449,6 +481,7 @@ class _LinearProgressIndicatorPainter extends CustomPainter {
   final double? start2; // for indeterminate
   final double? end2;
   final Color color;
+  final Gradient? progressGradient;
   final Color backgroundColor;
   final bool showSparks;
   final Color sparksColor;
@@ -461,6 +494,7 @@ class _LinearProgressIndicatorPainter extends CustomPainter {
     this.start2,
     this.end2,
     required this.color,
+    this.progressGradient,
     required this.backgroundColor,
     required this.showSparks,
     required this.sparksColor,
@@ -511,14 +545,13 @@ class _LinearProgressIndicatorPainter extends CustomPainter {
       paint,
     );
 
-    paint.color = color;
     var rectValue = Rect.fromLTWH(
       size.width * start,
       0,
       size.width * (end - start),
       size.height,
     );
-    canvas.drawRect(rectValue, paint);
+    _paintProgressRect(canvas, paint, rectValue);
     if (start2 != null && end2 != null) {
       rectValue = Rect.fromLTWH(
         size.width * start2,
@@ -526,7 +559,7 @@ class _LinearProgressIndicatorPainter extends CustomPainter {
         size.width * (end2 - start2),
         size.height,
       );
-      canvas.drawRect(rectValue, paint);
+      _paintProgressRect(canvas, paint, rectValue);
     }
 
     if (showSparks) {
@@ -552,11 +585,23 @@ class _LinearProgressIndicatorPainter extends CustomPainter {
     }
   }
 
+  void _paintProgressRect(Canvas canvas, Paint paint, Rect rect) {
+    if (progressGradient != null) {
+      paint.color = Colors.white;
+      paint.shader = progressGradient!.createShader(rect);
+    } else {
+      paint.shader = null;
+      paint.color = color;
+    }
+    canvas.drawRect(rect, paint);
+  }
+
   @override
   bool shouldRepaint(covariant _LinearProgressIndicatorPainter oldDelegate) {
     return oldDelegate.start != start ||
         oldDelegate.end != end ||
         oldDelegate.color != color ||
+        oldDelegate.progressGradient != progressGradient ||
         oldDelegate.backgroundColor != backgroundColor ||
         oldDelegate.showSparks != showSparks ||
         oldDelegate.sparksColor != sparksColor ||

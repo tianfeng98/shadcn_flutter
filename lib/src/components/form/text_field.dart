@@ -5,20 +5,20 @@ import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
 import 'package:flutter/cupertino.dart'
     show
+        ClipRect,
         ConstrainedBox,
         CupertinoSpellCheckSuggestionsToolbar,
         cupertinoDesktopTextSelectionHandleControls;
+import 'package:flutter/cupertino.dart' as cupertino;
 import 'package:flutter/foundation.dart'
     show IterableProperty, defaultTargetPlatform;
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart' as material;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:tf_shadcn_flutter/src/components/layout/hidden.dart';
 
 import '../../../shadcn_flutter.dart';
-
-import 'package:flutter/material.dart' as material;
-import 'package:flutter/cupertino.dart' as cupertino;
 
 /// Theme data for customizing [TextField] appearance.
 ///
@@ -654,79 +654,97 @@ abstract class InputFeatureState<T extends InputFeature> {
   late AnimationController _visibilityController;
 
   Iterable<Widget> _internalBuildLeading() sync* {
-    if (_visibilityController.value == 0) {
-      return;
-    }
     for (final widget in buildLeading()) {
-      yield Hidden(
-        hidden: _visibilityController.value < 1,
-        duration: kDefaultDuration,
-        child: widget,
+      yield ValueListenableBuilder(
+        valueListenable: _visibilityController,
+        builder: (context, value, child) {
+          if (value == 0) return const SizedBox.shrink();
+          return Hidden(
+            hidden: value < 1,
+            duration: kDefaultDuration,
+            child: widget,
+          );
+        },
       );
     }
   }
 
   Iterable<Widget> _internalBuildTrailing() sync* {
-    if (_visibilityController.value == 0) {
-      return;
-    }
     for (final widget in buildTrailing()) {
-      yield Hidden(
-        hidden: _visibilityController.value < 1,
-        duration: kDefaultDuration,
-        child: widget,
+      yield ValueListenableBuilder(
+        valueListenable: _visibilityController,
+        builder: (context, value, child) {
+          if (value == 0) return const SizedBox.shrink();
+          return Hidden(
+            hidden: value < 1,
+            duration: kDefaultDuration,
+            child: widget,
+          );
+        },
       );
     }
   }
 
   Iterable<Widget> _internalBuildPrefix() sync* {
-    if (_visibilityController.value == 0) {
-      return;
-    }
     for (final widget in buildPrefix()) {
-      yield Hidden(
-        hidden: _visibilityController.value < 1,
-        duration: kDefaultDuration,
-        child: widget,
+      yield ValueListenableBuilder(
+        valueListenable: _visibilityController,
+        builder: (context, value, child) {
+          if (value == 0) return const SizedBox.shrink();
+          return Hidden(
+            hidden: value < 1,
+            duration: kDefaultDuration,
+            child: widget,
+          );
+        },
       );
     }
   }
 
   Iterable<Widget> _internalBuildSuffix() sync* {
-    if (_visibilityController.value == 0) {
-      return;
-    }
     for (final widget in buildSuffix()) {
-      yield Hidden(
-        hidden: _visibilityController.value < 1,
-        duration: kDefaultDuration,
-        child: widget,
+      yield ValueListenableBuilder(
+        valueListenable: _visibilityController,
+        builder: (context, value, child) {
+          if (value == 0) return const SizedBox.shrink();
+          return Hidden(
+            hidden: value < 1,
+            duration: kDefaultDuration,
+            child: widget,
+          );
+        },
       );
     }
   }
 
   Iterable<Widget> _internalBuildAbove() sync* {
-    if (_visibilityController.value == 0) {
-      return;
-    }
     for (final widget in buildAbove()) {
-      yield Hidden(
-        hidden: _visibilityController.value < 1,
-        duration: kDefaultDuration,
-        child: widget,
+      yield ValueListenableBuilder(
+        valueListenable: _visibilityController,
+        builder: (context, value, child) {
+          if (value == 0) return const SizedBox.shrink();
+          return Hidden(
+            hidden: value < 1,
+            duration: kDefaultDuration,
+            child: widget,
+          );
+        },
       );
     }
   }
 
   Iterable<Widget> _internalBuildBelow() sync* {
-    if (_visibilityController.value == 0) {
-      return;
-    }
     for (final widget in buildBelow()) {
-      yield Hidden(
-        hidden: _visibilityController.value < 1,
-        duration: kDefaultDuration,
-        child: widget,
+      yield ValueListenableBuilder(
+        valueListenable: _visibilityController,
+        builder: (context, value, child) {
+          if (value == 0) return const SizedBox.shrink();
+          return Hidden(
+            hidden: value < 1,
+            duration: kDefaultDuration,
+            child: widget,
+          );
+        },
       );
     }
   }
@@ -753,7 +771,9 @@ abstract class InputFeatureState<T extends InputFeature> {
   void didChangeDependencies() {}
 
   void _updateAnimation() {
-    setState(() {});
+    // Animation is now driven by ValueListenableBuilder in _internalBuild* methods.
+    // No need to rebuild the entire TextField anymore.
+    // setState(() {});
   }
 
   void _updateVisibility() {
@@ -2429,6 +2449,7 @@ class TextFieldState extends State<TextField>
           isMultiline ? -1.0 : 0.0,
         );
 
+        // Build the content row without trailing widget
         final fieldRow = Row(
           crossAxisAlignment: widget.crossAxisAlignment,
           spacing: densityGap,
@@ -2439,17 +2460,19 @@ class TextFieldState extends State<TextField>
             // In the middle part, stack the placeholder on top of the main EditableText
             // if needed.
             Expanded(
-              child: Stack(
-                // Ideally this should be baseline aligned. However that comes at
-                // the cost of the ability to compute the intrinsic dimensions of
-                // this widget.
-                // See also https://github.com/flutter/flutter/issues/13715.
-                alignment: placeholderAlignment,
-                textDirection: widget.textDirection,
-                children: <Widget>[
-                  if (placeholder != null) placeholder,
-                  editableText
-                ],
+              child: ClipRect(
+                child: Stack(
+                  // Ideally this should be baseline aligned. However that comes at
+                  // the cost of the ability to compute the intrinsic dimensions of
+                  // this widget.
+                  // See also https://github.com/flutter/flutter/issues/13715.
+                  alignment: placeholderAlignment,
+                  textDirection: widget.textDirection,
+                  children: <Widget>[
+                    if (placeholder != null) placeholder,
+                    editableText
+                  ],
+                ),
               ),
             ),
             if (trailingChildren.isNotEmpty) trailingWidget,

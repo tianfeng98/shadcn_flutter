@@ -188,6 +188,12 @@ class ControlledSelect<T> extends StatelessWidget
   @override
   final Widget? placeholder;
   @override
+  final Widget? leading;
+  @override
+  final Widget? trailing;
+  @override
+  final Widget? indicatorIcon;
+  @override
   final bool filled;
   @override
   final FocusNode? focusNode;
@@ -234,6 +240,9 @@ class ControlledSelect<T> extends StatelessWidget
   /// - [onChanged] (`ValueChanged<T?>?`, optional): selection change callback
   /// - [enabled] (bool, default: true): whether select is interactive
   /// - [placeholder] (Widget?, optional): widget shown when no item selected
+  /// - [leading] (Widget?, optional): widget displayed before the selected value
+  /// - [trailing] (Widget?, optional): widget displayed after the selected value
+  /// - [indicatorIcon] (Widget?, optional): widget displayed as the dropdown indicator
   /// - [filled] (bool, default: false): whether to use filled appearance
   /// - [focusNode] (FocusNode?, optional): custom focus node for keyboard handling
   /// - [constraints] (BoxConstraints?, optional): size constraints for select widget
@@ -268,6 +277,9 @@ class ControlledSelect<T> extends StatelessWidget
     this.enabled = true,
     this.initialValue,
     this.placeholder,
+    this.leading,
+    this.trailing,
+    this.indicatorIcon,
     this.filled = false,
     this.focusNode,
     this.constraints,
@@ -294,6 +306,9 @@ class ControlledSelect<T> extends StatelessWidget
         return Select<T>(
           onChanged: data.onChanged,
           placeholder: placeholder,
+          leading: leading,
+          trailing: trailing,
+          indicatorIcon: indicatorIcon,
           filled: filled,
           focusNode: focusNode,
           constraints: constraints,
@@ -410,6 +425,12 @@ class ControlledMultiSelect<T> extends StatelessWidget
   @override
   final Widget? placeholder;
   @override
+  final Widget? leading;
+  @override
+  final Widget? trailing;
+  @override
+  final Widget? indicatorIcon;
+  @override
   final bool filled;
   @override
   final FocusNode? focusNode;
@@ -461,6 +482,9 @@ class ControlledMultiSelect<T> extends StatelessWidget
   /// - [onChanged] (`ValueChanged<Iterable<T>?>?`, optional): selection change callback
   /// - [enabled] (bool, default: true): whether select is interactive
   /// - [placeholder] (Widget?, optional): widget shown when no items selected
+  /// - [leading] (Widget?, optional): widget displayed before the selected values
+  /// - [trailing] (Widget?, optional): widget displayed after the selected values
+  /// - [indicatorIcon] (Widget?, optional): widget displayed as the dropdown indicator
   /// - [filled] (bool, default: false): whether to use filled appearance
   /// - [focusNode] (FocusNode?, optional): custom focus node for keyboard handling
   /// - [constraints] (BoxConstraints?, optional): size constraints for select widget
@@ -501,6 +525,9 @@ class ControlledMultiSelect<T> extends StatelessWidget
     this.enabled = true,
     this.initialValue,
     this.placeholder,
+    this.leading,
+    this.trailing,
+    this.indicatorIcon,
     this.filled = false,
     this.focusNode,
     this.constraints,
@@ -528,6 +555,9 @@ class ControlledMultiSelect<T> extends StatelessWidget
       enabled: enabled,
       initialValue: initialValue,
       placeholder: placeholder,
+      leading: leading,
+      trailing: trailing,
+      indicatorIcon: indicatorIcon,
       filled: filled,
       focusNode: focusNode,
       constraints: constraints,
@@ -827,6 +857,15 @@ mixin SelectBase<T> {
   /// Placeholder widget shown when nothing is selected.
   Widget? get placeholder;
 
+  /// Widget displayed before the selected value or placeholder.
+  Widget? get leading => null;
+
+  /// Widget displayed after the selected value or placeholder.
+  Widget? get trailing => null;
+
+  /// Widget displayed as the dropdown indicator.
+  Widget? get indicatorIcon => null;
+
   /// Whether to use filled appearance style.
   bool get filled;
 
@@ -932,6 +971,12 @@ class Select<T> extends StatefulWidget with SelectBase<T> {
   @override
   final Widget? placeholder; // placeholder when value is null
   @override
+  final Widget? leading;
+  @override
+  final Widget? trailing;
+  @override
+  final Widget? indicatorIcon;
+  @override
   final bool filled;
   @override
   final FocusNode? focusNode;
@@ -982,6 +1027,9 @@ class Select<T> extends StatefulWidget with SelectBase<T> {
   /// - [key] (Key?): Widget key for controlling widget identity
   /// - [onChanged] (`ValueChanged<T?>?`): Callback when selection changes; if null, select is disabled
   /// - [placeholder] (Widget?): Widget shown when no value is selected
+  /// - [leading] (Widget?): Widget displayed before the selected value or placeholder
+  /// - [trailing] (Widget?): Widget displayed after the selected value or placeholder
+  /// - [indicatorIcon] (Widget?): Widget displayed as the dropdown indicator
   /// - [filled] (bool): Whether to use filled background style, defaults to false
   /// - [focusNode] (FocusNode?): Focus node for keyboard interaction
   /// - [constraints] (BoxConstraints?): Size constraints for the select button
@@ -1005,6 +1053,9 @@ class Select<T> extends StatefulWidget with SelectBase<T> {
     super.key,
     this.onChanged,
     this.placeholder,
+    this.leading,
+    this.trailing,
+    this.indicatorIcon,
     this.filled = false,
     this.focusNode,
     this.constraints,
@@ -1273,6 +1324,10 @@ class SelectState<T> extends State<Select<T>>
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  if (widget.leading != null) ...[
+                    widget.leading!,
+                    SizedBox(width: 8 * scaling),
+                  ],
                   Data.inherit(
                     data: SelectData(
                       enabled: enabled,
@@ -1298,13 +1353,19 @@ class SelectState<T> extends State<Select<T>>
                           : _placeholder,
                     ),
                   ),
+                  if (widget.trailing != null) ...[
+                    SizedBox(width: 8 * scaling),
+                    widget.trailing!,
+                  ],
                   SizedBox(width: 8 * scaling),
                   IconTheme.merge(
                     data: IconThemeData(
                       color: theme.colorScheme.foreground,
                       opacity: 0.5,
                     ),
-                    child: const Icon(LucideIcons.chevronsUpDown).iconSmall(),
+                    child: (widget.indicatorIcon ??
+                            const Icon(LucideIcons.chevronsUpDown))
+                        .iconSmall(),
                   ),
                 ],
               ),
@@ -1420,6 +1481,12 @@ class MultiSelect<T> extends StatelessWidget with SelectBase<Iterable<T>> {
   @override
   final Widget? placeholder; // placeholder when value is null
   @override
+  final Widget? leading;
+  @override
+  final Widget? trailing;
+  @override
+  final Widget? indicatorIcon;
+  @override
   final bool filled;
   @override
   final FocusNode? focusNode;
@@ -1477,6 +1544,9 @@ class MultiSelect<T> extends StatelessWidget with SelectBase<Iterable<T>> {
   /// - [key] (Key?): Widget key for controlling widget identity
   /// - [onChanged] (`ValueChanged<Iterable<T>?>?`): Callback when selection changes; if null, widget is disabled
   /// - [placeholder] (Widget?): Widget shown when no values are selected
+  /// - [leading] (Widget?): Widget displayed before the selected values or placeholder
+  /// - [trailing] (Widget?): Widget displayed after the selected values or placeholder
+  /// - [indicatorIcon] (Widget?): Widget displayed as the dropdown indicator
   /// - [filled] (bool): Whether to use filled background style, defaults to false
   /// - [focusNode] (FocusNode?): Focus node for keyboard interaction
   /// - [constraints] (BoxConstraints?): Size constraints for the select button
@@ -1500,6 +1570,9 @@ class MultiSelect<T> extends StatelessWidget with SelectBase<Iterable<T>> {
     super.key,
     this.onChanged,
     this.placeholder,
+    this.leading,
+    this.trailing,
+    this.indicatorIcon,
     this.filled = false,
     this.focusNode,
     this.constraints,
@@ -1544,6 +1617,9 @@ class MultiSelect<T> extends StatelessWidget with SelectBase<Iterable<T>> {
       itemBuilder: itemBuilder,
       onChanged: onChanged,
       placeholder: placeholder,
+      leading: leading,
+      trailing: trailing,
+      indicatorIcon: indicatorIcon,
       filled: filled,
       focusNode: focusNode,
       constraints: constraints,
