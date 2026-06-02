@@ -1,6 +1,5 @@
 // This file contains mostly patches from another package/sdk
 // due to changes that need to be made but cannot be done normally
-import 'dart:math';
 import 'dart:ui' as ui show BoxHeightStyle, BoxWidthStyle;
 
 import 'package:flutter/cupertino.dart'
@@ -2126,41 +2125,49 @@ class TextFieldState extends State<TextField>
     }
     _effectiveFocusNode.canRequestFocus = widget.enabled;
 
-    for (var i = 0;
-        i < max(oldWidget.features.length, widget.features.length);
-        i++) {
-      if (i >= oldWidget.features.length) {
-        final newFeature = widget.features[i];
+    final previousAttached =
+        List<_AttachedInputFeature>.from(_attachedFeatures);
+    final used = List<bool>.filled(previousAttached.length, false);
+    final nextAttached = <_AttachedInputFeature>[];
+
+    for (final newFeature in widget.features) {
+      var matchedIndex = -1;
+      for (var i = 0; i < previousAttached.length; i++) {
+        if (used[i]) continue;
+        final oldFeature = previousAttached[i].feature;
+        if (InputFeature.canUpdate(oldFeature, newFeature)) {
+          matchedIndex = i;
+          break;
+        }
+      }
+
+      if (matchedIndex == -1) {
         final newState = newFeature.createState();
         newState._attached = _AttachedInputFeature(newFeature, newState);
         newState._inputState = this;
         newState.initState();
         newState.didChangeDependencies();
-        _attachedFeatures.add(newState._attached!);
+        nextAttached.add(newState._attached!);
         continue;
       }
-      if (i >= widget.features.length) {
-        final oldState = _attachedFeatures[i].state;
-        oldState.dispose();
-        _attachedFeatures.removeAt(i);
-        continue;
-      }
-      final oldFeature = oldWidget.features[i];
-      final newFeature = widget.features[i];
-      final oldState = _attachedFeatures[i].state;
-      if (!InputFeature.canUpdate(oldFeature, newFeature)) {
-        oldState.dispose();
-        final newState = newFeature.createState();
-        newState._attached = _AttachedInputFeature(newFeature, newState);
-        newState._inputState = this;
-        newState.initState();
-        newState.didChangeDependencies();
-        _attachedFeatures[i] = newState._attached!;
-      } else {
-        oldState._attached!.feature = newFeature;
-        oldState.didFeatureUpdate(oldFeature);
-      }
+
+      final matched = previousAttached[matchedIndex];
+      used[matchedIndex] = true;
+      final matchedState = matched.state;
+      final oldFeature = matched.feature;
+      matchedState._attached!.feature = newFeature;
+      matchedState.didFeatureUpdate(oldFeature);
+      nextAttached.add(matchedState._attached!);
     }
+
+    for (var i = 0; i < previousAttached.length; i++) {
+      if (used[i]) continue;
+      previousAttached[i].state.dispose();
+    }
+
+    _attachedFeatures
+      ..clear()
+      ..addAll(nextAttached);
   }
 
   @override
