@@ -4,6 +4,26 @@
 
 - Rename package identifier from `shadcn_flutter` to `tf_shadcn_flutter` and update package imports accordingly.
 
+## [0.0.53]
+
+### Added
+
+- **Generalized Key-based Anchoring System**: Introduced `OverlayAnchor` and a global registry `OverlayAnchorRegistry` to support anchoring overlays (Popovers, Drawers, Sheets, etc.) using `Symbol` keys.
+- **Support for optional anchor keys**: Added `anchor` parameter (`Symbol?`) to:
+  - `showPopover` and `PopoverController.show`
+  - `openDrawer`, `openSheet`, `openRawDrawer`, `openDrawerOverlay`, and `openSheetOverlay`
+    This eliminates the need to use `Builder` widgets to wrap trigger components just to obtain a nested `BuildContext` for `findRenderObject()`.
+
+### Changed
+
+- Deprecated direct `BuildContext context` parameter across all overlay/popup functions (such as `showPopover`, `openDrawer`, `openSheet`, etc.) in favor of `anchor` (`Symbol?`).
+
+### Fixed
+
+- **[#403] Fix decimal input bug**: Resolved `_DoubleOnlyFormatter` not accepting `0.00N` input cases (PR #403 by @petertle22).
+- **[#404] Clickable morphing decoration**: Ensured the `Clickable` decoration morphs smoothly when transitioning between shape/border-radius changes.
+- Cleaned up redundant and deprecated `Builder` widget usages in documentation, main examples, and sub-components.
+
 ## [0.0.52]
 
 ### Fixed
